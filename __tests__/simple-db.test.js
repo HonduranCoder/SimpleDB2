@@ -22,7 +22,7 @@ describe('simple database', () => {
       content: 'new file',
     };
 
-    const filePath = path.join(TEST_DIR, `${newFile.id}.txt`);
+    const filePath = path.join(TEST_DIR, `${newFile.id}.json`);
     //writing the file
     await fs.writeFile(filePath, JSON.stringify(newFile));
     //checking the get(id) returns the file, we want the value
@@ -34,7 +34,7 @@ describe('simple database', () => {
       id: '1',
       content: 'new file',
     };
-    fs.writeFile(TEST_DIR + 1 + 'txt', JSON.stringify(newFile));
+    fs.writeFile(TEST_DIR + 1 + 'json', JSON.stringify(newFile));
     const result = await firstDb.get(1);
     expect(result.message).toEqual('Not Found');
   });
